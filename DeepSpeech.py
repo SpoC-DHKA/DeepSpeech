@@ -23,7 +23,7 @@ from util.config import Config, initialize_globals
 from util.feeding import create_dataset, samples_to_mfccs, audiofile_to_features
 from util.flags import create_flags, FLAGS
 from util.logging import log_info, log_error, log_debug, log_progress, create_progressbar
-from polyaxon_client.tracking import Experiment
+
 
 # Graph Creation
 # ==============
@@ -804,7 +804,7 @@ def do_single_file_inference(input_file_path):
         print(decoded[0][1])
 
 
-def main(_):    
+def main(_):
     initialize_globals()
 
     if FLAGS.train_files:
