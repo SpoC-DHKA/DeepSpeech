@@ -67,7 +67,6 @@ def evaluate(test_csvs, create_model, try_loading):
                           inputs=logits,
                           sequence_length=batch_x_len)
     
-    Config.experiment.log_metrics(loss=loss)
 
     tf.train.get_or_create_global_step()
 

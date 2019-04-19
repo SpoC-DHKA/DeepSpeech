@@ -484,9 +484,9 @@ def train():
                 except tf.errors.OutOfRangeError:
                     break
 
+                Config.experiment.log_metrics(step=step_count, total_loss=total_loss)
                 total_loss += batch_loss
                 step_count += 1
-
                 pbar.update(step_count)
 
                 step_summary_writer.add_summary(step_summary, current_step)
@@ -509,6 +509,7 @@ def train():
                 log_progress('Training epoch %d...' % epoch)
                 train_loss, _ = run_set('train', epoch, train_init_op)
                 log_progress('Finished training epoch %d - loss: %f' % (epoch, train_loss))
+                Config.experiment.log_metrics(epoch=epoch, train_loss=train_loss)
                 checkpoint_saver.save(session, checkpoint_path, global_step=global_step)
 
                 if FLAGS.dev_files:
