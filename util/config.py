@@ -12,6 +12,8 @@ from util.logging import log_error
 from util.text import Alphabet
 from polyaxon_client.tracking import Experiment
 
+
+plx_experiment = Experiment()
 class ConfigSingleton:
     _config = None
 
@@ -34,7 +36,7 @@ def initialize_globals():
     # Available GPU devices
     c.available_devices = get_available_gpus()
     
-    c.experiment = Experiment()
+    c.experiment = plx_experiment
     c.log_tags(['GPUs', c.available_devices])
     # If there is no GPU available, we fall back to CPU based operation
     if not c.available_devices:
