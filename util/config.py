@@ -34,11 +34,14 @@ def initialize_globals():
     c.available_devices = get_available_gpus()
     
     c.experiment = Experiment()
-
+    c.log_tags(['GPUs', c.available_devices])
     # If there is no GPU available, we fall back to CPU based operation
     if not c.available_devices:
         c.available_devices = [c.cpu_device]
 
+
+    Config.experiment.log_metrics
+    
     # Set default dropout rates
     if FLAGS.dropout_rate2 < 0:
         FLAGS.dropout_rate2 = FLAGS.dropout_rate

@@ -804,7 +804,7 @@ def do_single_file_inference(input_file_path):
         print(decoded[0][1])
 
 
-def main(_):
+def main(_):    
     initialize_globals()
 
     if FLAGS.train_files:
