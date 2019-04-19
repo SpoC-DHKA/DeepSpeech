@@ -32,6 +32,8 @@ def initialize_globals():
 
     # Available GPU devices
     c.available_devices = get_available_gpus()
+    
+    c.experiment = Experiment()
 
     # If there is no GPU available, we fall back to CPU based operation
     if not c.available_devices:

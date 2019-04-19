@@ -66,6 +66,8 @@ def evaluate(test_csvs, create_model, try_loading):
     loss = tf.nn.ctc_loss(labels=batch_y,
                           inputs=logits,
                           sequence_length=batch_x_len)
+    
+    Config.experiment.log_metrics(loss=loss)
 
     tf.train.get_or_create_global_step()
 
@@ -135,6 +137,9 @@ def evaluate(test_csvs, create_model, try_loading):
 
             wer, cer, samples = calculate_report(ground_truths, predictions, distances, losses)
             mean_loss = np.mean(losses)
+
+            Config.experiment.log_metrics(wer=wer)
+            Config.experiment.log_metrics(mean_loss=mean_loss)
 
             # Take only the first report_count items
             report_samples = itertools.islice(samples, FLAGS.report_count)
