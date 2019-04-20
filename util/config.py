@@ -40,6 +40,7 @@ def initialize_globals():
     
     c.experiment = plx_experiment
     c.experiment.log_framework('tensorflow')
+    print(output_path())
     # If there is no GPU available, we fall back to CPU based operation
     if not c.available_devices:
         c.available_devices = [c.cpu_device]
