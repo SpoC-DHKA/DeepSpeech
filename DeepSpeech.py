@@ -23,7 +23,7 @@ from util.config import Config, initialize_globals
 from util.feeding import create_dataset, samples_to_mfccs, audiofile_to_features
 from util.flags import create_flags, FLAGS
 from util.logging import log_info, log_error, log_debug, log_progress, create_progressbar
-
+from polyaxon_helper import get_outputs_path
 
 # Graph Creation
 # ==============
@@ -493,6 +493,7 @@ def train():
 
                 if is_train and FLAGS.checkpoint_secs > 0 and time.time() - checkpoint_time > FLAGS.checkpoint_secs:
                     checkpoint_saver.save(session, checkpoint_path, global_step=current_step)
+                    checkpoint_saver.save(session, get_outputs_path, global_step=current_step)
                     checkpoint_time = time.time()
 
             pbar.finish()
