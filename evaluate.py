@@ -139,6 +139,7 @@ def evaluate(test_csvs, create_model, try_loading):
 
             Config.experiment.log_metrics(wer=wer)
             Config.experiment.log_metrics(mean_loss=mean_loss)
+            Config.experiment.log_metrics(cer=cer)
 
             # Take only the first report_count items
             report_samples = itertools.islice(samples, FLAGS.report_count)
