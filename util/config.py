@@ -55,14 +55,14 @@ def initialize_globals():
 
     # Set default checkpoint dir
     if not FLAGS.checkpoint_dir:
-        FLAGS.checkpoint_dir = xdg.save_data_path(os.path.join(output_path, 'checkpoints'))
+        FLAGS.checkpoint_dir = xdg.save_data_path(output_path + '/checkpoints')
 
     if FLAGS.load not in ['last', 'best', 'init', 'auto']:
         FLAGS.load = 'auto'
 
     # Set default summary dir
     if not FLAGS.summary_dir:
-        FLAGS.summary_dir = xdg.save_data_path(os.path.join(output_path, 'summaries'))
+        FLAGS.summary_dir = xdg.save_data_path(output_path + '/summaries')
 
     # Standard session configuration that'll be used for all new sessions.
     c.session_config = tf.ConfigProto(allow_soft_placement=True, log_device_placement=FLAGS.log_placement,
