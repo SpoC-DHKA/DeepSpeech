@@ -30,4 +30,13 @@ x
 y
 z
 '
+ä
+ö
+ü
+á
+à
+é
+è
+?
+-
 # The last (non-comment) line needs to end with a newline.
