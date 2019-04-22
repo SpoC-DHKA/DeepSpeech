@@ -56,7 +56,7 @@ def initialize_globals():
 
     # Set default checkpoint dir
     if not FLAGS.checkpoint_dir:
-        os.makedir(output_path() + '/checkpoints')
+        os.makedirs(output_path() + '/checkpoints')
         FLAGS.checkpoint_dir = output_path() + '/checkpoints'
 
     if FLAGS.load not in ['last', 'best', 'init', 'auto']:
@@ -64,12 +64,12 @@ def initialize_globals():
 
     # Set default summary dir
     if not FLAGS.summary_dir:
-        os.makedir(output_path() + '/summaries')
+        os.makedirs(output_path() + '/summaries')
         FLAGS.summary_dir = output_path() + '/summaries'
         
     # Set default export dir:
     if not FLAGS.export_dir:
-        os.makedir(output_path() + '/export')
+        os.makedirs(output_path() + '/export')
         FLAGS.summary_dir = output_path() + '/export'
 
     # Standard session configuration that'll be used for all new sessions.
