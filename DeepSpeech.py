@@ -521,6 +521,8 @@ def train():
                         dev_loss += set_loss * steps
                         total_steps += steps
                         log_progress('Finished validating epoch %d on %s - loss: %f' % (epoch, csv, set_loss))
+                        Config.experiment.log_metrics(epoch=epoch, val_loss=set_loss)
+
                     dev_loss = dev_loss / total_steps
 
                     dev_losses.append(dev_loss)
