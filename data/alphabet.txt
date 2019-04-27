@@ -59,5 +59,6 @@ I
 \xc5
 \xe2
 `
+ó
 
 # The last (non-comment) line needs to end with a newline.
