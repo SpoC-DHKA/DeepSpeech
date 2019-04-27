@@ -53,9 +53,11 @@ I
 \xb3
 ;
 :
+,
 \xa1
 \xc3
 \xc5
 \xe2
+`
 
 # The last (non-comment) line needs to end with a newline.
